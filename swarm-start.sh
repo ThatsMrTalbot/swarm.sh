@@ -1,9 +1,9 @@
 #!/bin/bash
 
-docker run -p 3000:3000 --privileged --name=swarm-master --rm docker:1.12-dind > /dev/null 2> /dev/null  &
-docker run --privileged --name=swarm-slave1 --rm docker:1.12-dind > /dev/null 2> /dev/null  &
-docker run --privileged --name=swarm-slave2 --rm docker:1.12-dind > /dev/null 2> /dev/null  &
-docker run --privileged --name=swarm-slave3 --rm docker:1.12-dind > /dev/null 2> /dev/null &
+docker run $@ -h swarm-master -p 3000:3000 --privileged --name=swarm-master --rm docker:1.12-dind > /dev/null 2> /dev/null  &
+docker run -h swarm-slave1 --privileged --name=swarm-slave1 --rm docker:1.12-dind > /dev/null 2> /dev/null  &
+docker run -h swarm-slave2 --privileged --name=swarm-slave2 --rm docker:1.12-dind > /dev/null 2> /dev/null  &
+docker run -h swarm-slave3 --privileged --name=swarm-slave3 --rm docker:1.12-dind > /dev/null 2> /dev/null &
 
 sleep 1
 
