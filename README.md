@@ -6,7 +6,7 @@ Some simple scripts to create a development swarm environment. This creates one 
 
 ### Create a swarm
 
-./swarm-start.sh 
+./swarm-start.sh [additional peramiters to pass to swarm-master, eg -p 80:80]
 
 
 ### Stop & Delete
